@@ -97,6 +97,7 @@ public class NIOChannelDemo {
         try (FileChannel fileChannel = (FileChannel) Files.newByteChannel(Path.of("NIOInputFile.txt"), StandardOpenOption.WRITE, StandardOpenOption.READ, StandardOpenOption.CREATE)) {
             // Create a mapped buffer
             MappedByteBuffer mappedByteBuffer = fileChannel.map(FileChannel.MapMode.READ_WRITE, 0, 26);
+            
             for (int i = 0; i < 26; i++) {
                 // No explicit write operation needed. Because buffer is mapped to the file, changes to it are automatically reflected in the underlying file.
                 mappedByteBuffer.put((byte) ('A' + i));
