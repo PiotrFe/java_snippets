@@ -5,7 +5,7 @@ public class AWTListDemo extends Frame implements ActionListener {
     List os, browser;
     String msg = "";
 
-    public AWTLabelDemo() {
+    public void AWTLabelDemo() {
         setLayout(new FlowLayout());
 
         os = new List(4, true);

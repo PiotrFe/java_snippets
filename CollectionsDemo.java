@@ -9,14 +9,14 @@
  - SortedSet -> set sorted in ascending order
  */
 
- /*
- Abstract classes:
-  - AbstractCollection
-  - AbstractList
-  - AbstractSequentialList
-  - AbstractQueue
-  - AbstractSet 
-  */
+/*
+Abstract classes:
+ - AbstractCollection
+ - AbstractList
+ - AbstractSequentialList
+ - AbstractQueue
+ - AbstractSet 
+ */
 
 /*
 Implementation classes:
@@ -30,30 +30,28 @@ Implementation classes:
   - EnumSet
  */
 
- /*
-  In addition (part of Collections framework, but not a Collection itself since it doesn't implement Commection interface):
+/*
+ In addition (part of Collections framework, but not a Collection itself since it doesn't implement Commection interface):
 
-  * Interfaces:
-  - Map (interface)
-  - Map.Entry (interface)
-  - NavigableMap -> supports retrieval based on the closest match to a given key or keys
-  - SortedMap -> entries maintained in ascending order based on keys
+ * Interfaces:
+ - Map (interface)
+ - Map.Entry (interface)
+ - NavigableMap -> supports retrieval based on the closest match to a given key or keys
+ - SortedMap -> entries maintained in ascending order based on keys
 
-  * Abstract Classes:
-  - AbstractMap
+ * Abstract Classes:
+ - AbstractMap
 
-  * Implementation Classes:
-  - HashMap
-  - LinkedHashMap -> maintains insertion order
-  - WeakHashMap
-  - IdentityHashMap -> uses reference equality when comparing elements; not for general use
-  - TreeMap -> ascending key order
-  - EnumMap -> for use with keys of an enum type
-  */
+ * Implementation Classes:
+ - HashMap
+ - LinkedHashMap -> maintains insertion order
+ - WeakHashMap
+ - IdentityHashMap -> uses reference equality when comparing elements; not for general use
+ - TreeMap -> ascending key order
+ - EnumMap -> for use with keys of an enum type
+ */
 
 import java.util.*;
-
-import javax.swing.text.html.HTMLDocument.Iterator;
 
 public class CollectionsDemo {
     public static void main(String[] args) {
@@ -143,9 +141,9 @@ public class CollectionsDemo {
         // PriorityQueue
         // ***************
         Comparator<String> c = new Comparator<>() {
-          public int compare(String s1, String s2) {
-            return s2.length() - s1.length();
-          };
+            public int compare(String s1, String s2) {
+                return s2.length() - s1.length();
+            };
         };
 
         PriorityQueue<String> priorityQueue = new PriorityQueue<>(c);
@@ -172,7 +170,7 @@ public class CollectionsDemo {
 
         System.out.println("Popping off arrayDeque stack");
 
-        while(arrayDeque.peek() != null) {
+        while (arrayDeque.peek() != null) {
             System.out.println(arrayDeque.pop() + " ");
             System.out.println();
         }
@@ -194,7 +192,7 @@ public class CollectionsDemo {
 
         // Modifying contents
         java.util.ListIterator<String> lit = arrayList.listIterator();
-        while(lit.hasNext()) {
+        while (lit.hasNext()) {
             String el = lit.next();
             lit.set(el + " - modified");
         }
@@ -207,7 +205,7 @@ public class CollectionsDemo {
         }
 
         // ***************
-        // Spliterator 
+        // Spliterator
         // ***************
         ArrayList<Double> vals = new ArrayList<>();
 
@@ -219,20 +217,22 @@ public class CollectionsDemo {
 
         // use tryAdvance() to display contents of vals
         Spliterator<Double> spliterator = vals.spliterator();
-        while(spliterator.tryAdvance((n) -> System.out.println(n)));
+        while (spliterator.tryAdvance((n) -> System.out.println(n)))
+            ;
 
         // create new vals that contain square roots
         ArrayList<Double> squared = new ArrayList<>();
         spliterator = vals.spliterator();
-        while(spliterator.tryAdvance((n) -> squared.add(Math.sqrt(n))));
+        while (spliterator.tryAdvance((n) -> squared.add(Math.sqrt(n))))
+            ;
 
         // use for each remaining to display vals
         spliterator = squared.spliterator();
         spliterator.forEachRemaining((n) -> System.out.println(n));
 
         // ***************
-        // HashMap 
-        // *************** 
+        // HashMap
+        // ***************
         HashMap<String, Double> hashMap = new HashMap<>();
 
         hashMap.put("pete", 1.020);
@@ -251,10 +251,10 @@ public class CollectionsDemo {
         }
 
         // ***************
-        // LinkedHashMap 
-        // *************** 
+        // LinkedHashMap
+        // ***************
         LinkedHashMap<String, Double> linkedHashMap = new LinkedHashMap<>();
-        
+
         linkedHashMap.put("pete", 1.020);
         linkedHashMap.put("mary", 3.020);
         linkedHashMap.put("gilbert", 5.020);
@@ -269,8 +269,8 @@ public class CollectionsDemo {
         }
 
         // ***************
-        // TreeMap 
-        // *************** 
+        // TreeMap
+        // ***************
         TreeMap<String, Double> treeMap = new TreeMap<>();
 
         treeMap.put("pete", 1.020);
@@ -286,7 +286,7 @@ public class CollectionsDemo {
         }
 
         // ***************
-        // Arrays 
-        // *************** 
+        // Arrays
+        // ***************
     }
 }

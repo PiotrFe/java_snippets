@@ -42,14 +42,14 @@ public class FileDemo {
 
         System.out.println("========");
 
-          for (var d : fileNameListFiltered) {
+        for (var d : fileNameListFiltered) {
             System.out.println(d);
         }
 
         File newDir = new File("./new_dir");
 
         if (!newDir.exists()) {
-            newDir.mkdir(newDir);
+            newDir.mkdir();
         }
     }
 }
